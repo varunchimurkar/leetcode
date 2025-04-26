@@ -16,5 +16,8 @@
     "url": "https://github.com/varunchimurkar/leetcode-clone/issues"
   },
   "homepage": "https://github.com/varunchimurkar/leetcode-clone#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
