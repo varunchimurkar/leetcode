@@ -44,7 +44,7 @@ export const register = async (req, res) => {
         })
 
         res.status(201).json({
-            success:true,
+            success: true,
             message: "User Created Successfully",
             user: {
                 id: newUser.id,
@@ -101,7 +101,7 @@ export const login = async (req, res) => {
         })
 
         res.status(200).json({
-            success:true,
+            success: true,
             message: "User Logged in Successfully",
             user: {
                 id: user.id,
@@ -144,4 +144,16 @@ export const logout = async (req, res) => {
 
 export const check = async (req, res) => {
 
+    try {
+        res.status(200).json({
+            success: true,
+            message: "User authenticated successfully",
+            user: req.user
+        });
+    } catch (error) {
+        console.error("Error checking user:", error);
+        res.status(500).json({
+            error: "Error checking user"
+        })
+    }
 }
