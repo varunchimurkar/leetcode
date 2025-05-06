@@ -97,7 +97,7 @@
      ```
    - Start the remaining services:
      ```bash
-     docker-compose up -d
+     docker-compose up -d OR sudo docker-compose up -d
      ```
    - Wait a few more seconds:
      ```bash
