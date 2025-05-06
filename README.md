@@ -89,7 +89,7 @@
      ```
    - Start the database and Redis services:
      ```bash
-     docker-compose up -d db redis
+     docker-compose up -d db redis OR sudo docker-compose up -d db redis
      ```
    - Wait for a few seconds:
      ```bash
