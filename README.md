@@ -69,7 +69,7 @@
      ```
    - Unzip the downloaded archive:
      ```bash
-     unzip judge0-v1.13.1.zip
+     unzip judge0-v1.13.1.zip OR sudo apt install unzip
      ```
 
 2. **Set Up Secure Passwords**  
