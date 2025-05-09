@@ -13,10 +13,10 @@ if(req.user.role !== "ADMIN"){
     })
 }
   try {
-     for( const [language, solutioncode] of Object.entries(referenceSolutions)){
+     for(const [language, solutioncode] of Object.entries(referenceSolutions)){
         const languageId = getJudge0LanguageId(language)
 
-        if(!language) {
+        if(!languageId) {
             return res.status(400).json({
                 error : `Language ${language} is not supported`
             })
@@ -36,7 +36,10 @@ if(req.user.role !== "ADMIN"){
         const results = await pollBatchResults(tokens)
 
         for(let i=0; i < results.length; i++){
-            const result = results[i];
+           
+            const result = results[i]
+
+            console.log("Result -- ----", results)
 
             if(result.status.id !==3) {
                 return res.status(400).json({error :` Testcase ${i+1} failed for language ${language}`})
@@ -49,7 +52,6 @@ if(req.user.role !== "ADMIN"){
                 description, 
                 difficulty,  
                 tags, 
-                userId, 
                 constraints, 
                 codeSnippets, 
                 referenceSolutions, 
@@ -59,12 +61,19 @@ if(req.user.role !== "ADMIN"){
              }
         })
 
-        return res.status(201).json(newProblem)
+        return res.status(201).json({
+            success: true,
+            message: "Message Created Successfully",
+            problem:newProblem
+        })
     }
 
 
   } catch(error) {
-
+      console.log(error)
+      return res.status(500).json({
+        error:"Error While Creating Problem"
+      })
   }
 
 }
