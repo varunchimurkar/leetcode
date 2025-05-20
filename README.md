@@ -48,7 +48,7 @@
 1. **Install Docker**  
    - Open the **Ubuntu terminal** and run:
      ```bash
-     sudo apt update && sudo apt install -y docker.io
+     sudo apt install -y docker.io
      ```
    - (Note: It's better to install `docker.io` package for Ubuntu.)
 
@@ -69,7 +69,7 @@
      ```
    - Unzip the downloaded archive:
      ```bash
-     unzip judge0-v1.13.1.zip OR sudo apt install unzip
+     sudo unzip judge0-v1.13.1.zip
      ```
 
 2. **Set Up Secure Passwords**  
@@ -77,7 +77,7 @@
      - Visit [Random Password Generator](https://www.random.org/passwords/?num=1&len=32&format=plain&rnd=new) and copy the first password.
      - Open the `judge0.conf` file:
        ```bash
-       nano judge0-v1.13.1/.env
+       nano judge0.conf
        ```
      - Update the `REDIS_PASSWORD` with the generated password.
      - Repeat the process for `POSTGRES_PASSWORD` using a new random password.
@@ -89,7 +89,8 @@
      ```
    - Start the database and Redis services:
      ```bash
-     docker-compose up -d db redis OR sudo docker-compose up -d db redis
+     docker-compose up -d db redis (Windows terminal)
+     sudo docker-compose up -d db redis (Ubuntu terminal)
      ```
    - Wait for a few seconds:
      ```bash
@@ -97,7 +98,8 @@
      ```
    - Start the remaining services:
      ```bash
-     docker-compose up -d OR sudo docker-compose up -d
+     docker-compose up -d (Windows terminal)
+     sudo docker-compose up -d (Ubuntu terminal)
      ```
    - Wait a few more seconds:
      ```bash
