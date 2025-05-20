@@ -28,7 +28,7 @@
 5. *(Optional)* **Adjust cgroup settings for better Docker compatibility**  
    - Open the GRUB config file:
      ```bash
-     sudo nano /etc/default/grub
+     sudo nano /etc/default/grub (if not working then run :- sudo /etc/default/grub)
      ```
    - Find the line starting with `GRUB_CMDLINE_LINUX` and change it to:
      ```bash
