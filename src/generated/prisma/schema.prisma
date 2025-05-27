@@ -91,12 +91,12 @@ model Submission {
 }
 
 model TestCaseResult {
-  id            String  @id @default(uuid())
+  id            String   @id @default(uuid())
   submissionId  String
   testCase      Int
   passed        Boolean
   stdout        String?
-  expected      String
+  expected      String[]
   stderr        String?
   compileOutput String?
   status        String

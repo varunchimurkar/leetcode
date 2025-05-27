@@ -5008,7 +5008,6 @@ export namespace Prisma {
     testCase: number | null
     passed: boolean | null
     stdout: string | null
-    expected: string | null
     stderr: string | null
     compileOutput: string | null
     status: string | null
@@ -5024,7 +5023,6 @@ export namespace Prisma {
     testCase: number | null
     passed: boolean | null
     stdout: string | null
-    expected: string | null
     stderr: string | null
     compileOutput: string | null
     status: string | null
@@ -5066,7 +5064,6 @@ export namespace Prisma {
     testCase?: true
     passed?: true
     stdout?: true
-    expected?: true
     stderr?: true
     compileOutput?: true
     status?: true
@@ -5082,7 +5079,6 @@ export namespace Prisma {
     testCase?: true
     passed?: true
     stdout?: true
-    expected?: true
     stderr?: true
     compileOutput?: true
     status?: true
@@ -5201,7 +5197,7 @@ export namespace Prisma {
     testCase: number
     passed: boolean
     stdout: string | null
-    expected: string
+    expected: string[]
     stderr: string | null
     compileOutput: string | null
     status: string
@@ -5319,7 +5315,7 @@ export namespace Prisma {
       testCase: number
       passed: boolean
       stdout: string | null
-      expected: string
+      expected: string[]
       stderr: string | null
       compileOutput: string | null
       status: string
@@ -5756,7 +5752,7 @@ export namespace Prisma {
     readonly testCase: FieldRef<"TestCaseResult", 'Int'>
     readonly passed: FieldRef<"TestCaseResult", 'Boolean'>
     readonly stdout: FieldRef<"TestCaseResult", 'String'>
-    readonly expected: FieldRef<"TestCaseResult", 'String'>
+    readonly expected: FieldRef<"TestCaseResult", 'String[]'>
     readonly stderr: FieldRef<"TestCaseResult", 'String'>
     readonly compileOutput: FieldRef<"TestCaseResult", 'String'>
     readonly status: FieldRef<"TestCaseResult", 'String'>
@@ -7798,7 +7794,7 @@ export namespace Prisma {
     testCase?: IntFilter<"TestCaseResult"> | number
     passed?: BoolFilter<"TestCaseResult"> | boolean
     stdout?: StringNullableFilter<"TestCaseResult"> | string | null
-    expected?: StringFilter<"TestCaseResult"> | string
+    expected?: StringNullableListFilter<"TestCaseResult">
     stderr?: StringNullableFilter<"TestCaseResult"> | string | null
     compileOutput?: StringNullableFilter<"TestCaseResult"> | string | null
     status?: StringFilter<"TestCaseResult"> | string
@@ -7835,7 +7831,7 @@ export namespace Prisma {
     testCase?: IntFilter<"TestCaseResult"> | number
     passed?: BoolFilter<"TestCaseResult"> | boolean
     stdout?: StringNullableFilter<"TestCaseResult"> | string | null
-    expected?: StringFilter<"TestCaseResult"> | string
+    expected?: StringNullableListFilter<"TestCaseResult">
     stderr?: StringNullableFilter<"TestCaseResult"> | string | null
     compileOutput?: StringNullableFilter<"TestCaseResult"> | string | null
     status?: StringFilter<"TestCaseResult"> | string
@@ -7876,7 +7872,7 @@ export namespace Prisma {
     testCase?: IntWithAggregatesFilter<"TestCaseResult"> | number
     passed?: BoolWithAggregatesFilter<"TestCaseResult"> | boolean
     stdout?: StringNullableWithAggregatesFilter<"TestCaseResult"> | string | null
-    expected?: StringWithAggregatesFilter<"TestCaseResult"> | string
+    expected?: StringNullableListFilter<"TestCaseResult">
     stderr?: StringNullableWithAggregatesFilter<"TestCaseResult"> | string | null
     compileOutput?: StringNullableWithAggregatesFilter<"TestCaseResult"> | string | null
     status?: StringWithAggregatesFilter<"TestCaseResult"> | string
@@ -8293,7 +8289,7 @@ export namespace Prisma {
     testCase: number
     passed: boolean
     stdout?: string | null
-    expected: string
+    expected?: TestCaseResultCreateexpectedInput | string[]
     stderr?: string | null
     compileOutput?: string | null
     status: string
@@ -8310,7 +8306,7 @@ export namespace Prisma {
     testCase: number
     passed: boolean
     stdout?: string | null
-    expected: string
+    expected?: TestCaseResultCreateexpectedInput | string[]
     stderr?: string | null
     compileOutput?: string | null
     status: string
@@ -8325,7 +8321,7 @@ export namespace Prisma {
     testCase?: IntFieldUpdateOperationsInput | number
     passed?: BoolFieldUpdateOperationsInput | boolean
     stdout?: NullableStringFieldUpdateOperationsInput | string | null
-    expected?: StringFieldUpdateOperationsInput | string
+    expected?: TestCaseResultUpdateexpectedInput | string[]
     stderr?: NullableStringFieldUpdateOperationsInput | string | null
     compileOutput?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
@@ -8342,7 +8338,7 @@ export namespace Prisma {
     testCase?: IntFieldUpdateOperationsInput | number
     passed?: BoolFieldUpdateOperationsInput | boolean
     stdout?: NullableStringFieldUpdateOperationsInput | string | null
-    expected?: StringFieldUpdateOperationsInput | string
+    expected?: TestCaseResultUpdateexpectedInput | string[]
     stderr?: NullableStringFieldUpdateOperationsInput | string | null
     compileOutput?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
@@ -8358,7 +8354,7 @@ export namespace Prisma {
     testCase: number
     passed: boolean
     stdout?: string | null
-    expected: string
+    expected?: TestCaseResultCreateexpectedInput | string[]
     stderr?: string | null
     compileOutput?: string | null
     status: string
@@ -8373,7 +8369,7 @@ export namespace Prisma {
     testCase?: IntFieldUpdateOperationsInput | number
     passed?: BoolFieldUpdateOperationsInput | boolean
     stdout?: NullableStringFieldUpdateOperationsInput | string | null
-    expected?: StringFieldUpdateOperationsInput | string
+    expected?: TestCaseResultUpdateexpectedInput | string[]
     stderr?: NullableStringFieldUpdateOperationsInput | string | null
     compileOutput?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
@@ -8389,7 +8385,7 @@ export namespace Prisma {
     testCase?: IntFieldUpdateOperationsInput | number
     passed?: BoolFieldUpdateOperationsInput | boolean
     stdout?: NullableStringFieldUpdateOperationsInput | string | null
-    expected?: StringFieldUpdateOperationsInput | string
+    expected?: TestCaseResultUpdateexpectedInput | string[]
     stderr?: NullableStringFieldUpdateOperationsInput | string | null
     compileOutput?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
@@ -8863,7 +8859,6 @@ export namespace Prisma {
     testCase?: SortOrder
     passed?: SortOrder
     stdout?: SortOrder
-    expected?: SortOrder
     stderr?: SortOrder
     compileOutput?: SortOrder
     status?: SortOrder
@@ -8879,7 +8874,6 @@ export namespace Prisma {
     testCase?: SortOrder
     passed?: SortOrder
     stdout?: SortOrder
-    expected?: SortOrder
     stderr?: SortOrder
     compileOutput?: SortOrder
     status?: SortOrder
@@ -9269,6 +9263,10 @@ export namespace Prisma {
     deleteMany?: TestCaseResultScalarWhereInput | TestCaseResultScalarWhereInput[]
   }
 
+  export type TestCaseResultCreateexpectedInput = {
+    set: string[]
+  }
+
   export type SubmissionCreateNestedOneWithoutTestCasesInput = {
     create?: XOR<SubmissionCreateWithoutTestCasesInput, SubmissionUncheckedCreateWithoutTestCasesInput>
     connectOrCreate?: SubmissionCreateOrConnectWithoutTestCasesInput
@@ -9285,6 +9283,11 @@ export namespace Prisma {
 
   export type BoolFieldUpdateOperationsInput = {
     set?: boolean
+  }
+
+  export type TestCaseResultUpdateexpectedInput = {
+    set?: string[]
+    push?: string | string[]
   }
 
   export type SubmissionUpdateOneRequiredWithoutTestCasesNestedInput = {
@@ -9992,7 +9995,7 @@ export namespace Prisma {
     testCase: number
     passed: boolean
     stdout?: string | null
-    expected: string
+    expected?: TestCaseResultCreateexpectedInput | string[]
     stderr?: string | null
     compileOutput?: string | null
     status: string
@@ -10007,7 +10010,7 @@ export namespace Prisma {
     testCase: number
     passed: boolean
     stdout?: string | null
-    expected: string
+    expected?: TestCaseResultCreateexpectedInput | string[]
     stderr?: string | null
     compileOutput?: string | null
     status: string
@@ -10138,7 +10141,7 @@ export namespace Prisma {
     testCase?: IntFilter<"TestCaseResult"> | number
     passed?: BoolFilter<"TestCaseResult"> | boolean
     stdout?: StringNullableFilter<"TestCaseResult"> | string | null
-    expected?: StringFilter<"TestCaseResult"> | string
+    expected?: StringNullableListFilter<"TestCaseResult">
     stderr?: StringNullableFilter<"TestCaseResult"> | string | null
     compileOutput?: StringNullableFilter<"TestCaseResult"> | string | null
     status?: StringFilter<"TestCaseResult"> | string
@@ -10657,7 +10660,7 @@ export namespace Prisma {
     testCase: number
     passed: boolean
     stdout?: string | null
-    expected: string
+    expected?: TestCaseResultCreateexpectedInput | string[]
     stderr?: string | null
     compileOutput?: string | null
     status: string
@@ -10672,7 +10675,7 @@ export namespace Prisma {
     testCase?: IntFieldUpdateOperationsInput | number
     passed?: BoolFieldUpdateOperationsInput | boolean
     stdout?: NullableStringFieldUpdateOperationsInput | string | null
-    expected?: StringFieldUpdateOperationsInput | string
+    expected?: TestCaseResultUpdateexpectedInput | string[]
     stderr?: NullableStringFieldUpdateOperationsInput | string | null
     compileOutput?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
@@ -10687,7 +10690,7 @@ export namespace Prisma {
     testCase?: IntFieldUpdateOperationsInput | number
     passed?: BoolFieldUpdateOperationsInput | boolean
     stdout?: NullableStringFieldUpdateOperationsInput | string | null
-    expected?: StringFieldUpdateOperationsInput | string
+    expected?: TestCaseResultUpdateexpectedInput | string[]
     stderr?: NullableStringFieldUpdateOperationsInput | string | null
     compileOutput?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
@@ -10702,7 +10705,7 @@ export namespace Prisma {
     testCase?: IntFieldUpdateOperationsInput | number
     passed?: BoolFieldUpdateOperationsInput | boolean
     stdout?: NullableStringFieldUpdateOperationsInput | string | null
-    expected?: StringFieldUpdateOperationsInput | string
+    expected?: TestCaseResultUpdateexpectedInput | string[]
     stderr?: NullableStringFieldUpdateOperationsInput | string | null
     compileOutput?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
