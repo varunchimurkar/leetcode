@@ -1,10 +1,10 @@
 import express from 'express'
 import { authMiddleware } from '../middleware/auth.middleware.js'
-import { addproblemToPlaylist, createPlaylist, deletePlaylist, getAllListDetails, getPlayListDetails, removeProblemFromPlaylist } from '../controllers/playlist.controller.js'
+import { addproblemToPlaylist, createPlaylist, deletePlaylist, getAllPlayListDetails, getPlayListDetails, removeProblemFromPlaylist } from '../controllers/playlist.controller.js'
 
 const playlistRoute = express.Router()
 
-playlistRoute.get("/", authMiddleware, getAllListDetails)
+playlistRoute.get("/", authMiddleware, getAllPlayListDetails)
 
 playlistRoute.get("/:playlistId", authMiddleware, getPlayListDetails)
 
