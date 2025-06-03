@@ -6,15 +6,22 @@ import problemRoutes from "./routes/problem.routes.js"
 import executionRoute from "./routes/executecode.routes.js"
 import submissionRoute from "./routes/submissionRoute.js"
 import playlistRoute from "./routes/playlist.routes.js"
-
+import cors from "cors"
 
 dotenv.config()
 
 const app = express()
 
+app.use(cors ({
+    origin:"http://localhost:5173",
+    credentials:true
+}))
+
 app.use(cookieParser())
 
 app.use(express.json())
+
+
 
 app.get("/", (req, res) => {
     res.send("Hello Welcome to leetcode🎁")
