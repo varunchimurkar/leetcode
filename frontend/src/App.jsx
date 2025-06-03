@@ -7,10 +7,11 @@ import SignUpPage from './page/SignUpPage'
 import HomePage from './page/HomePage'
 import LoginPage from './page/LoginPage'
 import { Loader } from 'lucide-react'
+import { userAuthStore } from './store/useAuthStore'
 
 const App = () => {
 
-  const { authUser, checkAuth, isCheckingAuth } = useAuthStore()
+  const { authUser, checkAuth, isCheckingAuth } = userAuthStore()
 
   //let authUser = null
 
