@@ -10,7 +10,7 @@ import LogOutButton from './LogOutButton'
 
 const Navbar = () => {
 
-    const authUser = userAuthStore()
+    const {authUser} = userAuthStore()
 
   return (
     <nav className="sticky top-0 z-50 w-full py-5">
