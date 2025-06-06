@@ -65,53 +65,53 @@ const problemSchema = z.object({
 })
 
 const sampledpData = {
-  title: "Climbing Stairs",
-  category: "dp", // Dynamic Programming
-  description:
-    "You are climbing a staircase. It takes n steps to reach the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?",
-  difficulty: "EASY",
-  tags: ["Dynamic Programming", "Math", "Memoization"],
-  constraints: "1 <= n <= 45",
-  hints:
-    "To reach the nth step, you can either come from the (n-1)th step or the (n-2)th step.",
-  editorial:
-    "This is a classic dynamic programming problem. The number of ways to reach the nth step is the sum of the number of ways to reach the (n-1)th step and the (n-2)th step, forming a Fibonacci-like sequence.",
-  testcases: [
-    {
-      input: "2",
-      output: "2",
+    title: "Climbing Stairs",
+    category: "dp", // Dynamic Programming
+    description:
+        "You are climbing a staircase. It takes n steps to reach the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?",
+    difficulty: "EASY",
+    tags: ["Dynamic Programming", "Math", "Memoization"],
+    constraints: "1 <= n <= 45",
+    hints:
+        "To reach the nth step, you can either come from the (n-1)th step or the (n-2)th step.",
+    editorial:
+        "This is a classic dynamic programming problem. The number of ways to reach the nth step is the sum of the number of ways to reach the (n-1)th step and the (n-2)th step, forming a Fibonacci-like sequence.",
+    testcases: [
+        {
+            input: "2",
+            output: "2",
+        },
+        {
+            input: "3",
+            output: "3",
+        },
+        {
+            input: "4",
+            output: "5",
+        },
+    ],
+    examples: {
+        JAVASCRIPT: {
+            input: "n = 2",
+            output: "2",
+            explanation:
+                "There are two ways to climb to the top:\n1. 1 step + 1 step\n2. 2 steps",
+        },
+        PYTHON: {
+            input: "n = 3",
+            output: "3",
+            explanation:
+                "There are three ways to climb to the top:\n1. 1 step + 1 step + 1 step\n2. 1 step + 2 steps\n3. 2 steps + 1 step",
+        },
+        JAVA: {
+            input: "n = 4",
+            output: "5",
+            explanation:
+                "There are five ways to climb to the top:\n1. 1 step + 1 step + 1 step + 1 step\n2. 1 step + 1 step + 2 steps\n3. 1 step + 2 steps + 1 step\n4. 2 steps + 1 step + 1 step\n5. 2 steps + 2 steps",
+        },
     },
-    {
-      input: "3",
-      output: "3",
-    },
-    {
-      input: "4",
-      output: "5",
-    },
-  ],
-  examples: {
-    JAVASCRIPT: {
-      input: "n = 2",
-      output: "2",
-      explanation:
-        "There are two ways to climb to the top:\n1. 1 step + 1 step\n2. 2 steps",
-    },
-    PYTHON: {
-      input: "n = 3",
-      output: "3",
-      explanation:
-        "There are three ways to climb to the top:\n1. 1 step + 1 step + 1 step\n2. 1 step + 2 steps\n3. 2 steps + 1 step",
-    },
-    JAVA: {
-      input: "n = 4",
-      output: "5",
-      explanation:
-        "There are five ways to climb to the top:\n1. 1 step + 1 step + 1 step + 1 step\n2. 1 step + 1 step + 2 steps\n3. 1 step + 2 steps + 1 step\n4. 2 steps + 1 step + 1 step\n5. 2 steps + 2 steps",
-    },
-  },
-  codeSnippets: {
-    JAVASCRIPT: `/**
+    codeSnippets: {
+        JAVASCRIPT: `/**
 * @param {number} n
 * @return {number}
 */
@@ -134,7 +134,7 @@ const result = climbStairs(n);
 console.log(result);
 rl.close();
 });`,
-    PYTHON: `class Solution:
+        PYTHON: `class Solution:
   def climbStairs(self, n: int) -> int:
       # Write your code here
       pass
@@ -152,7 +152,7 @@ if __name__ == "__main__":
   
   # Print result
   print(result)`,
-    JAVA: `import java.util.Scanner;
+        JAVA: `import java.util.Scanner;
 
 class Main {
   public int climbStairs(int n) {
@@ -172,9 +172,9 @@ class Main {
       scanner.close();
   }
 }`,
-  },
-  referenceSolutions: {
-    JAVASCRIPT: `/**
+    },
+    referenceSolutions: {
+        JAVASCRIPT: `/**
 * @param {number} n
 * @return {number}
 */
@@ -224,7 +224,7 @@ const result = climbStairs(n);
 console.log(result);
 rl.close();
 });`,
-    PYTHON: `class Solution:
+        PYTHON: `class Solution:
   def climbStairs(self, n: int) -> int:
       # Base cases
       if n <= 2:
@@ -261,7 +261,7 @@ if __name__ == "__main__":
   
   # Print result
   print(result)`,
-    JAVA: `import java.util.Scanner;
+        JAVA: `import java.util.Scanner;
 
 class Main {
   public int climbStairs(int n) {
@@ -307,55 +307,55 @@ class Main {
       scanner.close();
   }
 }`,
-  },
+    },
 }
 
 // Sample problem data for another type of question
 const sampleStringProblem = {
-  title: "Valid Palindrome",
-  description:
-    "A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers. Given a string s, return true if it is a palindrome, or false otherwise.",
-  difficulty: "EASY",
-  tags: ["String", "Two Pointers"],
-  constraints:
-    "1 <= s.length <= 2 * 10^5\ns consists only of printable ASCII characters.",
-  hints:
-    "Consider using two pointers, one from the start and one from the end, moving towards the center.",
-  editorial:
-    "We can use two pointers approach to check if the string is a palindrome. One pointer starts from the beginning and the other from the end, moving towards each other.",
-  testcases: [
-    {
-      input: "A man, a plan, a canal: Panama",
-      output: "true",
+    title: "Valid Palindrome",
+    description:
+        "A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers. Given a string s, return true if it is a palindrome, or false otherwise.",
+    difficulty: "EASY",
+    tags: ["String", "Two Pointers"],
+    constraints:
+        "1 <= s.length <= 2 * 10^5\ns consists only of printable ASCII characters.",
+    hints:
+        "Consider using two pointers, one from the start and one from the end, moving towards the center.",
+    editorial:
+        "We can use two pointers approach to check if the string is a palindrome. One pointer starts from the beginning and the other from the end, moving towards each other.",
+    testcases: [
+        {
+            input: "A man, a plan, a canal: Panama",
+            output: "true",
+        },
+        {
+            input: "race a car",
+            output: "false",
+        },
+        {
+            input: " ",
+            output: "true",
+        },
+    ],
+    examples: {
+        JAVASCRIPT: {
+            input: 's = "A man, a plan, a canal: Panama"',
+            output: "true",
+            explanation: '"amanaplanacanalpanama" is a palindrome.',
+        },
+        PYTHON: {
+            input: 's = "A man, a plan, a canal: Panama"',
+            output: "true",
+            explanation: '"amanaplanacanalpanama" is a palindrome.',
+        },
+        JAVA: {
+            input: 's = "A man, a plan, a canal: Panama"',
+            output: "true",
+            explanation: '"amanaplanacanalpanama" is a palindrome.',
+        },
     },
-    {
-      input: "race a car",
-      output: "false",
-    },
-    {
-      input: " ",
-      output: "true",
-    },
-  ],
-  examples: {
-    JAVASCRIPT: {
-      input: 's = "A man, a plan, a canal: Panama"',
-      output: "true",
-      explanation: '"amanaplanacanalpanama" is a palindrome.',
-    },
-    PYTHON: {
-      input: 's = "A man, a plan, a canal: Panama"',
-      output: "true",
-      explanation: '"amanaplanacanalpanama" is a palindrome.',
-    },
-    JAVA: {
-      input: 's = "A man, a plan, a canal: Panama"',
-      output: "true",
-      explanation: '"amanaplanacanalpanama" is a palindrome.',
-    },
-  },
-  codeSnippets: {
-    JAVASCRIPT: `/**
+    codeSnippets: {
+        JAVASCRIPT: `/**
    * @param {string} s
    * @return {boolean}
    */
@@ -380,7 +380,7 @@ const sampleStringProblem = {
     console.log(result ? "true" : "false");
     rl.close();
   });`,
-    PYTHON: `class Solution:
+        PYTHON: `class Solution:
       def isPalindrome(self, s: str) -> bool:
           # Write your code here
           pass
@@ -397,7 +397,7 @@ const sampleStringProblem = {
       
       # Output result
       print(str(result).lower())  # Convert True/False to lowercase true/false`,
-    JAVA: `import java.util.Scanner;
+        JAVA: `import java.util.Scanner;
 
 public class Main {
     public static String preprocess(String s) {
@@ -417,9 +417,9 @@ public class Main {
     }
 }
 `,
-  },
-  referenceSolutions: {
-    JAVASCRIPT: `/**
+    },
+    referenceSolutions: {
+        JAVASCRIPT: `/**
    * @param {string} s
    * @return {boolean}
    */
@@ -459,7 +459,7 @@ public class Main {
     console.log(result ? "true" : "false");
     rl.close();
   });`,
-    PYTHON: `class Solution:
+        PYTHON: `class Solution:
       def isPalindrome(self, s: str) -> bool:
           # Convert to lowercase and keep only alphanumeric characters
           filtered_chars = [c.lower() for c in s if c.isalnum()]
@@ -479,7 +479,7 @@ public class Main {
       
       # Output result
       print(str(result).lower())  # Convert True/False to lowercase true/false`,
-    JAVA: `import java.util.Scanner;
+        JAVA: `import java.util.Scanner;
 
 public class Main {
     public static String preprocess(String s) {
@@ -508,13 +508,13 @@ public class Main {
     }
 }
 `,
-  },
+    },
 }
 
 const CreateProblemForm = () => {
     const [sampleType, setSampleType] = useState("DP")
     const navigation = useNavigate()
-    const {register, control, handleSubmi, reset, formState:{error} } = useForm(
+    const { register, control, handleSubmit, reset, formState: { errors } } = useForm(
         {
             resolver: zodResolver(problemSchema),
             defaultValues: {
@@ -564,7 +564,17 @@ const CreateProblemForm = () => {
     const [isLoading, setIsLoading] = useState(false)
 
     const onSubmit = async (value) => {
-        console.log(value)
+        try {
+            setIsLoading(true)
+            const res = await axiosInstance.post("/problems/create-problem", value)
+            toast.success(res.data.message || "Problem created successfully ⚡")
+            navigation("/")
+        } catch (error) {
+            console.log(error)
+            toast.error("Error Creating Problem")
+        }finally{
+            setIsLoading(false)
+        }
     }
 
     const loadSampleData = () => {
