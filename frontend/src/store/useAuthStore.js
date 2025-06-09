@@ -102,3 +102,4 @@ export const userAuthStore = create((set) => ({
     }
 }))
 
+export default userAuthStore

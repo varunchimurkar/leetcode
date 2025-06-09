@@ -11,6 +11,7 @@ import { userAuthStore } from './store/useAuthStore'
 import Layout from './layout/Layout'
 import AdminRoute from './components/AdminRoute'
 import AddProblem from './page/AddProblem'
+import ProblemPage from './page/ProblemPage'
 
 const App = () => {
 
@@ -62,6 +63,11 @@ const App = () => {
           path='/add-problem'
           element={authUser ? <AddProblem /> : <Navigate to={"/"} />}
 
+        />
+
+        <Route
+          path='/problem/:id'
+          element={authUser ? <ProblemPage /> : <Navigate to={"/login"} />}
         />
       </Routes>
 
