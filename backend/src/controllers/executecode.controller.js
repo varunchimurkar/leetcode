@@ -8,14 +8,14 @@ export const executecode = async (req, res) => {
 
     try {
 
-        const { source_code, language_id, stdin, expected_output, problemId } = req.body
+        const { source_code, language_id, stdin, expected_outputs, problemId } = req.body
 
         const userId = req.user.id
 
         //Validate test cases
 
         if (!Array.isArray(stdin) || stdin.length === 0 ||
-            !Array.isArray(expected_output) || expected_output.length !== stdin.length) {
+            !Array.isArray(expected_outputs) || expected_outputs.length !== stdin.length) {
             return res.status(400).json({ error: "Invaild or Missing test cases" })
         }
 
@@ -45,8 +45,8 @@ export const executecode = async (req, res) => {
         let allPassed = true
         const detailedResults = results.map((result, i) => {
             const stdout = result.stdout?.trim()
-            const expected_outputs = expected_output[i]?.trim()
-            const passed = stdout === expected_outputs
+            const expected_output = expected_outputs[i]?.trim()
+            const passed = stdout === expected_output
 
             if (!passed) allPassed = false
 
@@ -54,7 +54,7 @@ export const executecode = async (req, res) => {
                 testCase: i + 1,
                 passed,
                 stdout,
-                expected: expected_output,
+                expected: [expected_outputs[i]],
                 stderr: result.stderr || null,
                 compile_output: result.compile_output || null,
                 status: result.status.description,
