@@ -21,14 +21,10 @@ import {
 } from "lucide-react"
 import { useExecutionStore } from '../store/useExecutionStore'
 import { getLanguageId } from '../lib/lang,js'
-
+import { useSubmissionStore } from '../store/useSubmissionStore'
 
 import SubmissionResults from '../components/submission'
-
-
-
-
-
+import SubmissionsList from '../components/SubmissionsList'
 
 const ProblemPage = () => {
 
@@ -40,14 +36,17 @@ const ProblemPage = () => {
   const [selectedLanguage, setSelectedLanguage] = useState("javascript")
   const [isBookmarked, setIsBookmarked] = useState(false)
   const [testCases, setTestCases] = useState([])
-
+  
+  const {isLoading:isSubmissionsLoading, getSubmissionForProblem, 
+    getSubmissionCountForProblem, submissionCount, submission:submissions }= useSubmissionStore()
 
 
   const { executeCode, submission, isExecuting } = useExecutionStore()
 
   useEffect(() => {
 
-    getProblemById(id)
+    getProblemById(id),
+    getSubmissionCountForProblem(id)
   }, [id])
 
 
@@ -205,7 +204,7 @@ const ProblemPage = () => {
   }
 
 
-  
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-base-300 to-base-200">
@@ -231,7 +230,7 @@ const ProblemPage = () => {
               </span>
               <span className="text-base-content/30">•</span>
               <Users className="w-4 h-4" />
-               {/* <span>{submissionCount} Submissions</span> */}
+              <span>{submissionCount} Submissions</span>
               <span className="text-base-content/30">•</span>
               <ThumbsUp className="w-4 h-4" />
               <span>95% Success Rate</span>
@@ -366,17 +365,17 @@ const ProblemPage = () => {
 
 
         <div className="card bg-base-100 shadow-xl mt-6">
-          
+
           <div className="card-body">
-           
-           {submission ? (
-              
-            <SubmissionResults submission={submission} />
+
+            {submission ? (
+
+              <SubmissionResults submission={submission} />
             ) : (
               <>
-              
+
                 <div className="flex items-center justify-between mb-6">
-                  
+
                   <h3 className="text-xl font-bold">Test Cases</h3>
                 </div>
                 <div className="overflow-x-auto">
