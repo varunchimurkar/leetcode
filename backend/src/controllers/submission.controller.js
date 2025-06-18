@@ -36,18 +36,18 @@ export const getSubmissionForProblem = async (req, res) => {
 
         const userId = req.user.id
         const problemId = req.params.problemId
-        const submission = await db.submission.findMany({
+        const submissions = await db.submission.findMany({
             where: {
                 userId: userId,
                 problemId: problemId
-               
+
             }
         })
 
         res.status(200).json({
             success: true,
             message: "Submission fetched successfully",
-            submission
+            submissions
         })
 
     } catch (error) {
@@ -70,7 +70,7 @@ export const getAllsubmissionForProblem = async (req, res) => {
         res.status(200).json({
             success: true,
             message: "Submission fetched successfully",
-            count:submission
+            count: submission
         })
 
     } catch (error) {
