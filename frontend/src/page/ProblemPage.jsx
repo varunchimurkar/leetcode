@@ -19,8 +19,9 @@ import {
   ThumbsUp,
   Home,
 } from "lucide-react"
+
 import { useExecutionStore } from '../store/useExecutionStore'
-import { getLanguageId } from '../lib/lang,js'
+import { getLanguageId } from '../lib/lang'
 import { useSubmissionStore } from '../store/useSubmissionStore'
 
 import SubmissionResults from '../components/submission'
@@ -36,17 +37,22 @@ const ProblemPage = () => {
   const [selectedLanguage, setSelectedLanguage] = useState("javascript")
   const [isBookmarked, setIsBookmarked] = useState(false)
   const [testCases, setTestCases] = useState([])
-  
-  const {isLoading:isSubmissionsLoading, getSubmissionForProblem, 
-    getSubmissionCountForProblem, submissionCount, submission:submissions }= useSubmissionStore()
 
+  const {
+    submission: submissions,
+    isLoading: isSubmissionsLoading,
+    getSubmissionForProblem,
+    getSubmissionCountForProblem,
+    submissionCount,
+  } = useSubmissionStore()
 
   const { executeCode, submission, isExecuting } = useExecutionStore()
+
 
   useEffect(() => {
 
     getProblemById(id),
-    getSubmissionCountForProblem(id)
+      getSubmissionCountForProblem(id)
   }, [id])
 
 
@@ -66,6 +72,14 @@ const ProblemPage = () => {
     }
   }, [problem, selectedLanguage])
 
+
+  useEffect(() => {
+    if (activeTab === "submissions" && id) {
+      getSubmissionForProblem(id)
+    }
+  }, [activeTab, id])
+
+  console.log("submission", submissions)
 
 
   const handleLanguageChange = (e) => {
@@ -164,18 +178,14 @@ const ProblemPage = () => {
           </div>
         )
       case "submissions":
-        /*  return (
-           <SubmissionsList
-             submissions={submissions}
-             isLoading={isSubmissionsLoading}
-           />
-         ) */
-
         return (
-          <div className="p-4 text-center text-base-content/70">
-            No Submission
-          </div>
+          <SubmissionsList
+            submissions={submissions}
+            isLoading={isSubmissionsLoading}
+          />
         )
+
+
       case "discussion":
         return (
           <div className="p-4 text-center text-base-content/70">

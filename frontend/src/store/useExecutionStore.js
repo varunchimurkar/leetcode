@@ -21,6 +21,7 @@ export const useExecutionStore = create((set) => ({
             })
            
             set({ submission: res.data.submissions })
+           
             toast.success(res.data.message)
         } catch (error) {
             console.log("Error executing code", error)
