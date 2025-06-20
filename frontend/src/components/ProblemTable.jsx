@@ -6,21 +6,22 @@ import { Bookmark, PencilIcon, Trash, TrashIcon, Plus, Loader2 } from "lucide-re
 import userAuthStore from '../store/useAuthStore'
 import { useActions } from "../store/useActions"
 //import AddToPlaylistModal from "./AddToPlaylist"
-//import CreatePlaylistModal from "./CreatePlaylistModal"
-//import { usePlaylistStore } from "../store/usePlaylistStore"
+
+import { usePlaylistStore } from "../store/usePlaylistStore"
+import CreatePlaylistModel from './CreatePlaylistModel'
 
 
 const ProblemTable = ({ problems }) => {
   const { authUser } = userAuthStore()
   const { onDeleteProblem, isDeletingProblem } = useActions()
-  //const { createPlaylist } = usePlaylistStore()
+  const { createPlaylist } = usePlaylistStore()
   const [search, setSearch] = useState("")
   const [difficulty, setDifficulty] = useState("ALL")
   const [selectedTag, setSelectedTag] = useState("ALL")
   const [currentPage, setCurrentPage] = useState(1)
-  // const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
-  // const [isAddToPlaylistModalOpen, setIsAddToPlaylistModalOpen] = useState(false)
-  // const [selectedProblemId, setSelectedProblemId] = useState(null)
+  const [isCreateModelOpen, setIsCreateModelOpen] = useState(false)
+  const [isAddToPlaylistModalOpen, setIsAddToPlaylistModalOpen] = useState(false)
+  //const [selectedProblemId, setSelectedProblemId] = useState(null)
 
   // Extract all unique tags from problems
   const allTags = useMemo(() => {
@@ -61,19 +62,23 @@ const ProblemTable = ({ problems }) => {
    
   const handleAddToPlaylist = (id) => { }
 
+  const handleCreatePlaylist = async (data) => {
+    await createPlaylist(data)
+  }
 
   return (
     <div className="w-full max-w-6xl mx-auto mt-10">
       {/* Header with Create Playlist Button */}
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold">Problems</h2>
-        {/* <button
+        { <button
           className="btn btn-primary gap-2"
-          onClick={() => setIsCreateModalOpen(true)}
+          onClick={() => setIsCreateModelOpen(true)}
+          
         >
           <Plus className="w-4 h-4" />
           Create Playlist
-        </button> */}
+        </button> }
       </div>
 
       {/* Filters */}
@@ -214,6 +219,7 @@ const ProblemTable = ({ problems }) => {
           </tbody>
         </table>
       </div>
+
       <div className='flex justify-center mt-6 gap-2'>
         <button className='btn btn-sm'
           disabled={currentPage === 1}
@@ -232,8 +238,17 @@ const ProblemTable = ({ problems }) => {
         > Next </button>
 
       </div>
-    </div>
+       <CreatePlaylistModel  
+       isOpen={isCreateModelOpen}
+       onClose={() => setIsCreateModelOpen(false)}
+       onSubmit={handleCreatePlaylist}
+       
+       />
 
+
+
+    </div>
+      
   )
 }
 

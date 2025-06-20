@@ -364,17 +364,11 @@ const ProblemPage = () => {
                   </button>
                 </div>
               </div>
-
-
-            </div>
+           </div>
           </div>
         </div>
 
-
-
-
-
-        <div className="card bg-base-100 shadow-xl mt-6">
+<div className="card bg-base-100 shadow-xl mt-6">
 
           <div className="card-body">
 
