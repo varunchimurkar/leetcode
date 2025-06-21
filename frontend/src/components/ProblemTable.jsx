@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 import { Bookmark, PencilIcon, Trash, TrashIcon, Plus, Loader2 } from "lucide-react";
 import userAuthStore from '../store/useAuthStore'
 import { useActions } from "../store/useActions"
-//import AddToPlaylistModal from "./AddToPlaylist"
 
 import { usePlaylistStore } from "../store/usePlaylistStore"
 import CreatePlaylistModel from './CreatePlaylistModel'
+import AddToPlaylist from './AddToPlaylist';
 
 
 const ProblemTable = ({ problems }) => {
@@ -21,7 +21,7 @@ const ProblemTable = ({ problems }) => {
   const [currentPage, setCurrentPage] = useState(1)
   const [isCreateModelOpen, setIsCreateModelOpen] = useState(false)
   const [isAddToPlaylistModalOpen, setIsAddToPlaylistModalOpen] = useState(false)
-  //const [selectedProblemId, setSelectedProblemId] = useState(null)
+  const [selectedProblemId, setSelectedProblemId] = useState(null)
 
   // Extract all unique tags from problems
   const allTags = useMemo(() => {
@@ -60,7 +60,10 @@ const ProblemTable = ({ problems }) => {
    }
 
    
-  const handleAddToPlaylist = (id) => { }
+  const handleAddToPlaylist = (problemId) => {
+    setSelectedProblemId(problemId)
+    setIsAddToPlaylistModalOpen(true)
+   }
 
   const handleCreatePlaylist = async (data) => {
     await createPlaylist(data)
@@ -245,7 +248,11 @@ const ProblemTable = ({ problems }) => {
        
        />
 
-
+<AddToPlaylist 
+ isOpen={isAddToPlaylistModalOpen}
+ onClose={() => setIsAddToPlaylistModalOpen(false)}
+ problemId={selectedProblemId}
+/>
 
     </div>
       
