@@ -37,7 +37,7 @@ app.use("/api/v1/submission", submissionRoute)
 
 app.use("/api/v1/playlist", playlistRoute)
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 8080, "0.0.0.0", () => {
     console.log("Server running in 8080")
 })
 
