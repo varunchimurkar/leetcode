@@ -24,7 +24,7 @@ import { useExecutionStore } from '../store/useExecutionStore'
 import { getLanguageId } from '../lib/lang'
 import { useSubmissionStore } from '../store/useSubmissionStore'
 
-import SubmissionResults from '../components/submission'
+import SubmissionResults from '../components/Submission'
 import SubmissionsList from '../components/SubmissionsList'
 
 const ProblemPage = () => {

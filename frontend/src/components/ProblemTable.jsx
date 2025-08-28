@@ -55,15 +55,15 @@ const ProblemTable = ({ problems }) => {
   // Define allowed difficulties
   const difficulties = ["EASY", "MEDIUM", "HARD"]
 
-  const handleDelete = (id) => { 
+  const handleDelete = (id) => {
     onDeleteProblem(id)
-   }
+  }
 
-   
+
   const handleAddToPlaylist = (problemId) => {
     setSelectedProblemId(problemId)
     setIsAddToPlaylistModalOpen(true)
-   }
+  }
 
   const handleCreatePlaylist = async (data) => {
     await createPlaylist(data)
@@ -74,14 +74,14 @@ const ProblemTable = ({ problems }) => {
       {/* Header with Create Playlist Button */}
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold">Problems</h2>
-        { <button
+        {<button
           className="btn btn-primary gap-2"
           onClick={() => setIsCreateModelOpen(true)}
-          
+
         >
           <Plus className="w-4 h-4" />
           Create Playlist
-        </button> }
+        </button>}
       </div>
 
       {/* Filters */}
@@ -190,10 +190,10 @@ const ProblemTable = ({ problems }) => {
                             >
                               {
                                 isDeletingProblem ? <Loader2 className='animate-spin h-4 w-4' />
-                                :   <TrashIcon className="w-4 h-4 text-white" /> 
+                                  : <TrashIcon className="w-4 h-4 text-white" />
                               }
 
-                            
+
                             </button>
                             <button disabled className="btn btn-sm btn-warning">
                               <PencilIcon className="w-4 h-4 text-white" />
@@ -241,21 +241,21 @@ const ProblemTable = ({ problems }) => {
         > Next </button>
 
       </div>
-       <CreatePlaylistModel  
-       isOpen={isCreateModelOpen}
-       onClose={() => setIsCreateModelOpen(false)}
-       onSubmit={handleCreatePlaylist}
-       
-       />
+      <CreatePlaylistModel
+        isOpen={isCreateModelOpen}
+        onClose={() => setIsCreateModelOpen(false)}
+        onSubmit={handleCreatePlaylist}
 
-<AddToPlaylist 
- isOpen={isAddToPlaylistModalOpen}
- onClose={() => setIsAddToPlaylistModalOpen(false)}
- problemId={selectedProblemId}
-/>
+      />
+
+      <AddToPlaylist
+        isOpen={isAddToPlaylistModalOpen}
+        onClose={() => setIsAddToPlaylistModalOpen(false)}
+        problemId={selectedProblemId}
+      />
 
     </div>
-      
+
   )
 }
 
