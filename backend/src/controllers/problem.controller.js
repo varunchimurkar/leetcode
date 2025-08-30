@@ -70,7 +70,7 @@ export const createProblem = async (req, res) => {
 
 
     } catch (error) {
-        // console.log(error)
+        console.error("CreateProblem error:", error);
         return res.status(500).json({
             error: "Error While Creating Problem"
         })
