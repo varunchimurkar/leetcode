@@ -64,7 +64,7 @@ const problemSchema = z.object({
     }),
 })
 
-const sampledpData = {
+const sampledData = {
     title: "Climbing Stairs",
     category: "dp", // Dynamic Programming
     description:
