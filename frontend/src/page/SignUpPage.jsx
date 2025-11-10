@@ -153,7 +153,7 @@ const SignUpPage = () => {
                   Loading...
                 </>
               ) : (
-                "Sign in"
+                "Sign up"
               )}
 
            
